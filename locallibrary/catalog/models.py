@@ -96,7 +96,7 @@ class BookInstance(models.Model):
         primary_key=True,
         default=uuid.uuid4,
         help_text="Unique ID for this particular book across whole library")
-    book = models.ForeignKey('Book', on_delete=models.RESTRICT, null=True)
+    book: Book = models.ForeignKey('Book', on_delete=models.RESTRICT, null=True)
     imprint = models.CharField(max_length=200)
     due_back = models.DateField(null=True, blank=True)
 
@@ -120,7 +120,13 @@ class BookInstance(models.Model):
 
     def __str__(self):
         """String for representing the Model object."""
-        return f'{self.id} ({self.book.title})'
+        return f'{self.id} ({self.display_title()})'
+
+    def display_title(self):
+        """Create a string for the Title. This is required to display genre in Admin."""
+        return self.book.title
+
+    display_title.short_description = 'Title'
 
 
 class Author(models.Model):
