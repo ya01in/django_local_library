@@ -9,6 +9,17 @@ admin.site.register(Genre)
 # admin.site.register(BookInstance)
 admin.site.register(Language)
 
+
+class BooksInstanceInline(admin.TabularInline):
+    model = BookInstance
+    extra = 0
+
+
+class BookInline(admin.TabularInline):
+    model = Book
+    extra = 0
+
+
 # Define the admin class
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
@@ -16,9 +27,7 @@ class AuthorAdmin(admin.ModelAdmin):
     # customize views in details layout
     fields = ['first_name', 'last_name', ('date_of_birth', 'date_of_death')]
 
-class BooksInstanceInline(admin.TabularInline):
-    model = BookInstance
-    extra = 0
+    inlines = [BookInline]
 
 # Register the Admin classes for Book using the decorator
 @admin.register(Book)
