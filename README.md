@@ -57,3 +57,21 @@ create admin site using project's admin.py, added data through it and customize 
   * list display
   * section display
   * filter
+
+### Create Views
+
+Learn to create simple URL maps and views (where no data is encoded in the URL), get data from models, and create templates.
+
+#### Flow
+
+1. Determine what information we want to display in our pages
+2. Define the URLs to use for returning those resources.
+3. Create a URL mapper, views, and templates to display the pages.
+
+#### url mapper -> view functions -> templates
+
+* url mapping
+* index page
+* function based view generation
+* html templates
+* static resources
