@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Title: {{ author.title }}</h1>
+
+  <p><strong>first_name:</strong> {{ author.first_name }}</p>
+  <p><strong>last_name:</strong> {{ author.last_name }}</p>
+  <p><strong>date_of_birth:</strong> {{ author.date_of_birth }}</p>
+  <p><strong>date_of_death:</strong> {{ author.date_of_death }}</p>
+
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Publishes:</h4>
+
+    {% for publish in author.book_set.all %}
+      <hr />
+      <p><strong>Title:</strong> {{ publish.title }}</p>
+      <p><strong>Summary:</strong> {{ publish.summary }}</p>
+      <p><strong>ISBN:</strong> {{ publish.isbn }}</p>
+      <p class="text-muted"><strong>Id:</strong> {{ publish.id }}</p>
+    {% endfor %}
+  </div>
+{% endblock %}
