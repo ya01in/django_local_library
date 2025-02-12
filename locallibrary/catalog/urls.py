@@ -8,5 +8,7 @@ urlpatterns = [
     path('book/<int:pk>', views.BookDetailView.as_view(), name='book-detail'),
     # regular expression path definition
     # re_path(r'^book/(?P<pk>\d+)$', views.BookDetailView.as_view(), name='book-detail'),
+    path('authors/', views.AuthorListView.as_view(), name='authors'),
+    path('authors/<int:pk>', views.AuthorDetailView.as_view(), name='author-detail'),
 
 ]
