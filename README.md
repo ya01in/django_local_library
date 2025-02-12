@@ -75,3 +75,15 @@ Learn to create simple URL maps and views (where no data is encoded in the URL),
 * function based view generation
 * html templates
 * static resources
+* pagination
+* listview
+* template logics
+  * variable
+  * loop
+  * condition
+
+#### current views
+
+* homepage
+* books
+* authors
